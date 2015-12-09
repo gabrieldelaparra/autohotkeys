@@ -33,6 +33,20 @@ return
 #w:: send ch ;Connect>Hardware Module(Windows+W)
 ^i:: send !f{Enter}m ;Insert MainApplication Template
 
+#z::
+; Desde el PCM, con la ventana para renombrar abierta, excel en la otra pantalla.
+; colocarse sobre la primera celda.
+Loop, 16
+{
+Send {ALTDOWN}{TAB}{ALTUP} 
+Send {LCtrl Down}c{LCtrl Up} 
+Send {Down}
+Send {ALTDOWN}{TAB}{ALTUP} 
+Send {LCtrl Down}V{LCtrl Up}
+Send {Enter}
+}
+return
+
 ;Insert Text (Windows+T) Coordenadas del boton de texto: 430,60
 #t:: 
 MouseGetPos, xpos, ypos 
