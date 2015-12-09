@@ -1,1 +1,1 @@
-MKLINK %USERPROFILE%\Documents\AutoHotkey.ahk AutoHotkey.ahk 
+MKLINK /H %USERPROFILE%\Documents\AutoHotkey.ahk AutoHotkey.ahk 
