@@ -4,6 +4,47 @@ SetTitleMatchMode, RegEx
 
 F1:: return ;Elimina F1;
 
+
++XButton1::
+SendInput, ^k
+SendInput, ^u
+return
+
++XButton2::
+SendInput, ^k
+SendInput, ^c
+return
+
+XButton1::
+SendInput,  {PgUp}
+return
+
+XButton2::
+SendInput, {PgDn}
+return
+
+#+k::WrapClipText("<file:", ">")
+
+
+WrapClipText(Left,Right)
+
+{
+
+  ClipSaved := ClipboardAll
+
+  Clipboard =
+	send ^c
+	StringReplace, Clipboard, Clipboard, \, /, All
+	Clipboard = %Left%%clipboard%%Right%
+
+	send ^v
+
+	Clipboard := ClipSaved
+	ClipSaved = 
+
+}
+
+
 $^t::
 SetTitleMatchMode 2
 IfWinExist Google Chrome
