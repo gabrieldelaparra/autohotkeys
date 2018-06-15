@@ -1,7 +1,7 @@
 ; #=Win ^=Ctrl +=Shift !=Alt
 
 ; Para acceder a aplicaciones por el nombre en Regex
-; SetTitleMatchMode, RegEx
+SetTitleMatchMode, RegEx
 
 ; Elimina F1
 F1:: return 
@@ -37,17 +37,19 @@ WrapClipText(Left,Right)
 
 }
 
-
+; Lauch new tab anywhere on Edge Browser 
 $^t::
 SetTitleMatchMode 2
-IfWinExist Google Chrome
+IfWinExist Edge
 {
-	WinActivate, Google Chrome     
+	WinActivate, Edge     
 	SendInput ^t
 }
 else
-    run "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    run "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe"
 return
+
+;En teclados W540, no hay tecla AppsKey, se simula con Doble Shift
 
 ~Shift::	
 if (A_PriorHotkey <> "~Shift" or A_TimeSincePriorHotkey > 300)
@@ -55,5 +57,5 @@ if (A_PriorHotkey <> "~Shift" or A_TimeSincePriorHotkey > 300)
 	KeyWait, Shift
     return
 }
-send +{AppsKey} ;En teclados W540, no hay tecla AppsKey, se simula con Doble Shift
+send +{AppsKey} 
 return
